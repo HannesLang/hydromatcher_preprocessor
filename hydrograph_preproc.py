@@ -118,6 +118,7 @@ def insert_sdh_into_db(dataframe):
         params = config(filename='properties.ini', section='postgresql')
 
         print('Connecting to the PostgreSQL database with params {}'.format(params))
+        ## TODO get password from c:\Users\jlang\AppData\Roaming\postgresql\pgpass.conf
         engine = create_engine(
             'postgresql://{user}:{password}@{host}:{port}/{database}'.format(user=params.get('user'), password=params.get('password'),
                                                                              host=params.get('host'), port=params.get('port'),
