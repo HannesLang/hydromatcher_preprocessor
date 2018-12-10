@@ -88,7 +88,6 @@ def readfiles():
         dataframe_result.loc[i] = dsh_dictionary
         i += 1
 
-    print(dataframe_result)
     return dataframe_result
 
 
@@ -160,7 +159,7 @@ def insert_shapefile_into_db(dataframe):
 
 if __name__ == '__main__':
     dataframe = readfiles()
-    if len(dataframe.index) > 0:
+    if dataframe.size > 0:
         insert_sdh_into_db(dataframe)
         insert_shapefile_into_db(dataframe)
     else:
