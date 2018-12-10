@@ -160,5 +160,8 @@ def insert_shapefile_into_db(dataframe):
 
 if __name__ == '__main__':
     dataframe = readfiles()
-    insert_sdh_into_db(dataframe)
-    insert_shapefile_into_db(dataframe)
+    if len(dataframe.index) > 0:
+        insert_sdh_into_db(dataframe)
+        insert_shapefile_into_db(dataframe)
+    else:
+        print('No Hydrographs and Shapefiles found. Therefore no processing executed.')
